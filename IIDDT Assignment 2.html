@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Flipper</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Background Color : </h1>
+    <button id="btn" class="btn">CLICK ME</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.color {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: rgb(9, 9, 9);
+    border: black;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2ebc19;
+}
+const colorDiv = document.getElementById('color');
+const btn = document.getElementById('btn');
+
+const colors = [
+    '#FF5733', '#33FF57', '#3357FF', '#FF33F4', '#F4FF33',
+    '#33FFF4', '#FF5733', '#33FF57', '#3357FF', '#FF33F4'
+];
+
+function getRandomColor() {
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+btn.addEventListener('click', function() {
+    const randomColor = getRandomColor();
+    document.body.style.backgroundColor = randomColor;
+    colorDiv.textContent = randomColor;
+    colorDiv.style.color = randomColor;
+});
